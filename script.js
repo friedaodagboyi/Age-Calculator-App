@@ -104,13 +104,35 @@ form.addEventListener("submit", handleSubmit);
 
 // Add theme toggle functionality
 const themeToggle = document.getElementById("theme-toggle");
+const iconMoon = document.querySelector(".icon-moon");
+const iconSun = document.querySelector(".icon-sun");
+
+// Function to update the icon based on the current mode
+function updateIcon(isDarkMode) {
+  if (isDarkMode) {
+    iconSun.style.display = "flex";
+    iconMoon.style.display = "none";
+  } else {
+    iconSun.style.display = "none";
+    iconMoon.style.display = "flex";
+  }
+}
+
 const isDarkMode = localStorage.getItem("theme") === "dark";
-themeToggle.classList.toggle("active", isDarkMode);
-document.body.classList.toggle("dark-mode", isDarkMode);
+updateIcon(isDarkMode);
 
 themeToggle.addEventListener("click", () => {
   const isCurrentlyDark = document.body.classList.contains("dark-mode");
   document.body.classList.toggle("dark-mode");
+  themeToggle.classList.toggle("active", !isCurrentlyDark);
+  localStorage.setItem("theme", isCurrentlyDark ? "light" : "dark");
+
+  // Update the icon after toggling the theme
+  updateIcon(!isCurrentlyDark);
+});
+
+// ... rest of your JavaScript code ...
+
   themeToggle.classList.toggle("active", !isCurrentlyDark);
   localStorage.setItem("theme", isCurrentlyDark ? "light" : "dark");
 });
