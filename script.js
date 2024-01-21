@@ -131,8 +131,6 @@ themeToggle.addEventListener("click", () => {
   updateIcon(!isCurrentlyDark);
 });
 
-// ... rest of your JavaScript code ...
-
   themeToggle.classList.toggle("active", !isCurrentlyDark);
   localStorage.setItem("theme", isCurrentlyDark ? "light" : "dark");
 });
