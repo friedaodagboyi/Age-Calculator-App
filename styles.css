@@ -13,7 +13,7 @@
   src: url(./assets/fonts/Poppins-Regular.ttf);
 }
 
-. {
+* {
   font-family: Pop !important;
 }
 
