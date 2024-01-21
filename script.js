@@ -102,6 +102,7 @@ form.addEventListener("submit", handleSubmit);
 
 
 
+
 // Add theme toggle functionality
 const themeToggle = document.getElementById("theme-toggle");
 const iconMoon = document.querySelector(".icon-moon");
@@ -131,6 +132,3 @@ themeToggle.addEventListener("click", () => {
   updateIcon(!isCurrentlyDark);
 });
 
-  themeToggle.classList.toggle("active", !isCurrentlyDark);
-  localStorage.setItem("theme", isCurrentlyDark ? "light" : "dark");
-});
